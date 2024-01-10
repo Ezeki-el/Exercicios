@@ -1,0 +1,49 @@
+/* Adicione estilos específicos para o tema do Shrek */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.header {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.hero {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.hero__content__branding img {
+    width: 150px; /* Ajuste conforme necessário */
+}
+
+.shows {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.plans {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.image-text-section {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.available-devices {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.faq {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #7c9e45;
+    color: #ffffff;
+}
