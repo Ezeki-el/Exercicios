@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Github</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="profile-avatar" src="https://via.placeholder.com/180x180" alt=".">
+            <h1 class="profile-name">Gian Souza</h1>
+            <h2 class="profile-username">@ogiansouza</h2>
+            <ul class="numbers">
+                <li class="numbers-item" id="repositories">
+                    <h4>Repositórios</h4>
+                </li>
+                <li class="numbers-item" id="followers">
+                    <h4>Seguidores</h4>
+                </li>
+                <li class="numbers-item" id="following">
+                    <h4>Seguindo</h4>
+                </li>
+            </ul>
+            <a href="#" class="profile-link" id="githubLink">Ver no Github</a>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function fetchData() {
+                fetch('https://api.github.com/users/ogiansouza')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erro na requisição');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        document.getElementById('repositories').innerHTML = `<h4>Repositórios</h4>${data.public_repos}`;
+                        document.getElementById('followers').innerHTML = `<h4>Seguidores</h4>${data.followers}`;
+                        document.getElementById('following').innerHTML = `<h4>Seguindo</h4>${data.following}`;
+                        document.getElementById('githubLink').href = data.html_url;
+                    })
+                    .catch(error => {
+                        console.error('Erro na requisição:', error);
+                    });
+            }
+
+            fetchData();
+        });
+    </script>
+</body>
+</html>
