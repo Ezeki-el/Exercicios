@@ -1,4 +1,4 @@
-# exercicio-veujs
+# calculadora-vue
 
 ## Project setup
 ```
