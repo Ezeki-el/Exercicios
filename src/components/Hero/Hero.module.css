@@ -8,6 +8,16 @@
   align-items: center;
 }
 
+.form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: var(--cor-secundaria);
+  padding: 32px;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+
 .form::before {
   position: absolute;
   top: 0;
