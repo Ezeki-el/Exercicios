@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import FormVagas from '../../components/FormVagas'
 import Vaga from '../../components/Vaga'
-import { Container, VagasGrid } from './ListaVagas.styles'
 
 // Supondo que `vagas` seja um array de objetos de vaga
 const vagas = [
@@ -29,28 +28,39 @@ const vagas = [
 const ListaVagas = () => {
   const [filtro, setFiltro] = useState<string>('')
 
-  const vagasFiltradas = vagas.filter(
-    (x) => x.titulo.toLocaleLowerCase().search(filtro.toLocaleLowerCase()) >= 0
+  const vagasFiltradas = vagas.filter((Vaga) =>
+    Vaga.titulo.toLocaleLowerCase().search(filtro.toLocaleLowerCase()) >= 0
   )
 
   return (
-    <Container>
+
       <FormVagas aoPesquisar={(termo: string) => setFiltro(termo)} />
-      <VagasGrid>
-        {vagasFiltradas.map((vag) => (
+
+    {vagasFiltradas.map((vag) => (
           <Vaga
-            key={vag.id}
-            titulo={vag.titulo}
-            localizacao={vag.localizacao}
-            nivel={vag.nivel}
-            modalidade={vag.modalidade}
-            salarioMin={vag.salarioMin}
-            salarioMax={vag.salarioMax}
-          />
+        key={vag.id}
+        titulo={vag.titulo}
+        localizacao={vag.localizacao}
+        nivel={vag.nivel}
+        modalidade={vag.modalidade}
+        salarioMin={vag.salarioMin}
+        salarioMax={vag.salarioMax} requisitos={[]}          />
         ))}
-      </VagasGrid>
-    </Container>
-  )
+
 }
 
 export default ListaVagas
+// Assuming `vag` object contains the `requisitos` property
+const vagasFiltradas = [
+  {
+    id: 1,
+    titulo: 'Desenvolvedor Front-end',
+    localizacao: 'São Paulo',
+    nivel: 'Júnior',
+    modalidade: 'Remoto',
+    salarioMin: 3000,
+    salarioMax: 5000,
+    requisitos: ['React', 'CSS', 'JavaScript'] // Add the requisitos property
+  },
+  // more job objects
+];
