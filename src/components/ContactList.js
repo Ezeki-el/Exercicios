@@ -95,8 +95,8 @@
                 <ContactPhone>{contact.phone}</ContactPhone>
             </ContactInfo>
             <div>
-                <Button className="edit" onClick={() => onEdit(contact)}>Edit</Button>
-                <Button className="delete" onClick={() => dispatch(removeContact(contact.id))}>Delete</Button>
+                <Button className="edit" onClick={() => onEdit(contact)}>Edita</Button>
+                <Button className="delete" onClick={() => dispatch(removeContact(contact.id))}>Deleta</Button>
             </div>
             </ListItem>
         ))}

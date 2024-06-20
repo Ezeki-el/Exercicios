@@ -51,7 +51,7 @@ return (
     <Input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nome Completo" required />
     <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
     <Input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Telefone" required />
-    <Button type="submit">{currentContact ? 'Update Contact' : 'Add Contact'}</Button>
+    <Button type="submit">{currentContact ? 'Edita Contato' : 'Adiciona Contato'}</Button>
     </Form>
 );
 };

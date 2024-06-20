@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddContactForm from './components/AddContactForm';
 import ContactList from './components/ContactList';
+import Header from './components/Header';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -18,11 +19,13 @@ function App() {
   };
 
   return (
-    <Container>
-      <h1>Contact List</h1>
-      <AddContactForm currentContact={currentContact} setCurrentContact={setCurrentContact} />
-      <ContactList onEdit={handleEdit} />
-    </Container>
+    <div>
+      <Header />
+      <Container>
+        <AddContactForm currentContact={currentContact} setCurrentContact={setCurrentContact} />
+        <ContactList onEdit={handleEdit} />
+      </Container>
+    </div>
   );
 }
 
