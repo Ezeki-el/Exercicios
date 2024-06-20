@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AddContactForm from './components/AddContactForm';
+import ContactList from './components/ContactList';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+`;
 
 function App() {
+  const [currentContact, setCurrentContact] = useState(null);
+
+  const handleEdit = (contact) => {
+    setCurrentContact(contact);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <h1>Contact List</h1>
+      <AddContactForm currentContact={currentContact} setCurrentContact={setCurrentContact} />
+      <ContactList onEdit={handleEdit} />
+    </Container>
   );
 }
 
