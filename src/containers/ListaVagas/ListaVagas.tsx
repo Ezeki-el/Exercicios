@@ -1,27 +1,58 @@
-import { ListaVagas } from './ListaVagas.1'
+import styled from 'styled-components';
+import { useState } from 'react';
+import FormVagas from '../../components/FormVagas';
+import Vaga from '../../components/Vaga';
 
-// Supondo que `vagas` seja um array de objetos de vaga
-export const vagas = [
-  {
-    id: 1,
-    titulo: 'Desenvolvedor Front-end',
-    localizacao: 'São Paulo',
-    nivel: 'Junior',
-    modalidade: 'Remoto',
-    salarioMin: 3000,
-    salarioMax: 5000
-  },
-  {
-    id: 2,
-    titulo: 'Designer Gráfico',
-    localizacao: 'Rio de Janeiro',
-    nivel: 'Pleno',
-    modalidade: 'Presencial',
-    salarioMin: 4000,
-    salarioMax: 6000
+const Container = styled.div`
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 1024px) {
+    max-width: 80%;
   }
-  // Adicione outras vagas conforme necessário
-]
+`;
 
-export default ListaVagas
-// Assuming `vag` object contains the `requisitos` property
+const VagasGrid = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+  margin-top: 32px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const vagas = [
+  // ... your vagas array
+];
+
+const ListaVagas = () => {
+  const [filtro, setFiltro] = useState<string>('');
+
+  const vagasFiltradas = vagas.filter((x) =>
+    x.titulo.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+  );
+
+  return (
+    <Container>
+      <FormVagas aoPesquisar={(termo: string) => setFiltro(termo)} />
+      <VagasGrid>
+        {vagasFiltradas.map((vag) => (
+          <Vaga
+            key={vag.id}
+            titulo={vag.titulo}
+            localizacao={vag.localizacao}
+            nivel={vag.nivel}
+            modalidade={vag.modalidade}
+            salarioMin={vag.salarioMin}
+            salarioMax={vag.salarioMax}
+            requisitos={vag.requisitos}
+          />
+        ))}
+      </VagasGrid>
+    </Container>
+  );
+};
+
+export default ListaVagas;
