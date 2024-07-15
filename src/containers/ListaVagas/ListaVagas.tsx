@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { useState } from 'react';
-import FormVagas from '../../components/FormVagas';
-import Vaga from '../../components/Vaga';
+import styled from 'styled-components'
+import { useState } from 'react'
+import FormVagas from '../../components/FormVagas'
+import Vaga from '../../components/Vaga'
 
 const Container = styled.div`
   max-width: 1024px;
@@ -10,7 +10,7 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     max-width: 80%;
   }
-`;
+`
 
 const VagasGrid = styled.ul`
   display: grid;
@@ -21,18 +21,19 @@ const VagasGrid = styled.ul`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`;
+`
 
-const vagas = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const vagas: any[] = [
   // ... your vagas array
-];
+]
 
 const ListaVagas = () => {
-  const [filtro, setFiltro] = useState<string>('');
+  const [filtro, setFiltro] = useState<string>('')
 
   const vagasFiltradas = vagas.filter((x) =>
     x.titulo.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
-  );
+  )
 
   return (
     <Container>
@@ -52,7 +53,7 @@ const ListaVagas = () => {
         ))}
       </VagasGrid>
     </Container>
-  );
-};
+  )
+}
 
-export default ListaVagas;
+export default ListaVagas

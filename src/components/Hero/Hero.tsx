@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const HeroForm = styled.form`
   height: 360px;
@@ -22,7 +22,7 @@ const HeroForm = styled.form`
     position: relative;
     color: #eee;
   }
-`;
+`
 
 const HeroTitle = styled.h2`
   font-family: Gloock, serif;
@@ -30,7 +30,7 @@ const HeroTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 32px;
   }
-`;
+`
 
 const Hero = () => (
   <HeroForm>
@@ -40,6 +40,6 @@ const Hero = () => (
       </HeroTitle>
     </div>
   </HeroForm>
-);
+)
 
-export default Hero;
+export default Hero

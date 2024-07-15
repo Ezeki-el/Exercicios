@@ -41,7 +41,9 @@ const FormVagas = ({ aoPesquisar }: Props) => {
     <Form onSubmit={aoEnviarForm}>
       <Campo
         placeholder="Front-end, fullstack, node, design"
-        onChange={(e) => setTermo(e.target.value)}
+        onChange={(e: { target: { value: unknown } }) => {
+          return setTermo(e.target.value)
+        }}
         type="search"
       />
       <BtnPesquisar type="submit">Pesquisar</BtnPesquisar>
@@ -50,3 +52,6 @@ const FormVagas = ({ aoPesquisar }: Props) => {
 }
 
 export default FormVagas
+function useState<T>(arg0: string): [any, any] {
+  throw new Error('Function not implemented.')
+}
