@@ -1,4 +1,9 @@
 import styled from 'styled-components'
+import { FormEvent, useState } from 'react'
+
+type Props = {
+  aoPesquisar: (termo: string) => void
+}
 
 const Form = styled.form`
   display: grid;
@@ -9,7 +14,7 @@ const Form = styled.form`
   margin-top: 40px;
 `
 
-const BtnPesquisar = styled.button`
+const Button = styled.button`
   background-color: var(--cor-principal);
   border: 1px solid var(--cor-principal);
   height: 40px;
@@ -20,38 +25,29 @@ const BtnPesquisar = styled.button`
   cursor: pointer;
 `
 
-const Campo = styled.input`
+const Input = styled.input`
   padding: 0 16px;
   outline-color: var(--cor-principal);
 `
 
-type Props = {
-  aoPesquisar: (termo: string) => void
-}
-
 const FormVagas = ({ aoPesquisar }: Props) => {
   const [termo, setTermo] = useState<string>('')
 
-  const aoEnviarForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const aoEnviarForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     aoPesquisar(termo.toLocaleLowerCase())
   }
 
   return (
     <Form onSubmit={aoEnviarForm}>
-      <Campo
+      <Input
         placeholder="Front-end, fullstack, node, design"
-        onChange={(e: { target: { value: unknown } }) => {
-          return setTermo(e.target.value)
-        }}
+        onChange={(e) => setTermo(e.target.value)}
         type="search"
       />
-      <BtnPesquisar type="submit">Pesquisar</BtnPesquisar>
+      <Button type="submit">Pesquisar</Button>
     </Form>
   )
 }
 
 export default FormVagas
-function useState<T>(arg0: string): [any, any] {
-  throw new Error('Function not implemented.')
-}
